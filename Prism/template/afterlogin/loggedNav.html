@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../../static/CSS/output.css">
+  <title>Document</title>
+</head>
+<body>
+  
+
+    
+    <!-- ======= Header ======= -->
+    
+<nav class="relative px-4 py-4 flex justify-between items-center bg-white">
+  <a class="text-3xl font-bold leading-none" href="#">
+      <div class="w-16">
+          <img src="../../static/images/image 1.png" alt="" srcset="">
+      </div>
+
+  </a>
+
+
+  
+  
+  <div  class="lg:hidden mr-7">
+      <button class="navbar-burger flex items-center text-blue-600 p-3">
+          <svg class="block h-7 w-10 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <title>Mobile menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+          </svg>
+      </button>
+  </div>
+
+  <details class="dropdown ml-60">
+    <summary><img class="w-16 m-1 btn  h-16 p-1  rounded-full ring-2 ring-white " src="../../static/images/image 1.png" alt="Bordered avatar"></summary>
+    <ul class="p-2 shadow menu dropdown-content z-[1] bg-white rounded-box ml-[-50px] w-36">
+      <li><a>PROFILE</a></li>
+      <li><a>LOG-OUT</a></li>
+    </ul>
+  </details>
+  <ul class="sm:hidden gap-14 absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2  md:mx-auto md:flex lg:items-center lg:w-auto lg:space-x-6">
+      <li><a hx-get="/home" hx-trigger="click" hx-target="#bro" class="text-sm  text-gray-700 hover:text-blue-600" href="#">HOME</a></li>
+      <li><a class="text-sm text-gray-700 hover:text-blue-600 " href="#">TEAM</a></li>
+      <li><a class="text-sm text-gray-700 hover:text-blue-600 " href="#">ANNOUNCEMENT</a></li>
+      <li><a class="text-sm text-gray-700 hover:text-blue-600 " href="#">LEADERBOARD</a></li>
+      <li><a  hx-get="/CONTACT" hx-trigger="click" hx-target="#bro" class="text-sm text-gray-700 hover:text-blue-600 " href="#">CONTACT</a></li>
+  </ul>
+  
+
+
+</nav>
+<div class="navbar-menu relative z-50 hidden">
+  <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+  <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+      <div class="flex items-center mb-8">
+          <a class="mr-auto text-3xl font-bold leading-none" href="#">
+            <div class="w-16">
+              <img src="../../static/images/image 1.png" alt="" srcset="">
+          </div>
+          </a>
+          <button class="navbar-close">
+              <svg class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+          </button>
+      </div>
+      <div>
+          <ul>
+              <li class="mb-1">
+                  <a hx-get="/home" hx-trigger="click" hx-target="#bro" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">HOME</a>
+              </li>
+              <li class="mb-1">
+                  <a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">TEAM</a>
+              </li>
+              <li class="mb-1">
+                  <a hx-get="/CONTACT" hx-trigger="click" hx-target="#bro" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">ANNOUNCEMENT</a>
+              </li>
+              <li class="mb-1">
+                <a hx-get="/CONTACT" hx-trigger="click" hx-target="#bro" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">LEADERBOARD</a>
+            </li>
+            <li class="mb-1">
+              <a hx-get="/CONTACT" hx-trigger="click" hx-target="#bro" class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">CONTACT
+              </a>
+          </li>
+          </ul>
+      </div>
+      <div class="mt-auto">
+
+          <p class="my-4 text-xs text-center text-gray-400">
+              <span>Copyright © 2021</span>
+          </p>
+      </div>
+  </nav>
+</div>
+</body>
+
+<script>
+// Burger menus
+document.addEventListener('DOMContentLoaded', function() {
+// open
+const burger = document.querySelectorAll('.navbar-burger');
+const menu = document.querySelectorAll('.navbar-menu');
+
+if (burger.length && menu.length) {
+  for (var i = 0; i < burger.length; i++) {
+      burger[i].addEventListener('click', function() {
+          for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle('hidden');
+          }
+      });
+  }
+}
+
+// close
+const close = document.querySelectorAll('.navbar-close');
+const backdrop = document.querySelectorAll('.navbar-backdrop');
+
+if (close.length) {
+  for (var i = 0; i < close.length; i++) {
+      close[i].addEventListener('click', function() {
+          for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle('hidden');
+          }
+      });
+  }
+}
+
+if (backdrop.length) {
+  for (var i = 0; i < backdrop.length; i++) {
+      backdrop[i].addEventListener('click', function() {
+          for (var j = 0; j < menu.length; j++) {
+              menu[j].classList.toggle('hidden');
+          }
+      });
+  }
+}
+});
+</script>
+
+</body>
+  </html>

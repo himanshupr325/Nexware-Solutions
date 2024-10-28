@@ -1,0 +1,77 @@
+User
+- user_id* (Primary Key):INTEGER
+- username*:TEXT
+- email*(unique):TEXT
+- password*:TEXT
+- profile_pictur:bulb
+- points-number:INTEGER
+- phone_number:INTEGER
+- school/college-text:TEXT
+- group_id-Foreignkey(group_id):INTEGER
+- group_role-Foreignkey(role):TEXT
+
+Teacher 
+- teacher_id* (Primary Key):INTEGER
+- teachername*:TEXT
+- email*(unique):TEXT
+- password*:TEXT
+- profile_pictur:bulb
+- phone_number:INTEGER
+- qalification:TEXT
+- designation:TEXT
+- approved:BOOLEAN
+- school/college:TEXT
+- stack:text
+
+Post
+- post_id* (Primary Key):INTEGER
+- user_id* (Foreign Key to User):INTEGER
+- Contribution* (Contribution_id):INTEGER
+- group_id (Foreign Key to Group, Nullable):INTEGER
+- title*:TEXT
+- content:TEXT
+- image :bulb
+- created_at*:DATE
+- like:INTEGER
+- marks:INTEGER
+
+EVALUATION
+- post_id* (Foreign Key to post_id):INTEGER
+- marks*:INTEGER
+- teacher_id*(Foreign Key to post_id):INTEGER 
+
+Contribution
+- Contribution_id*(unique):INTEGER
+- stack*:TEXT
+- user_id*(Foreignkey):INTEGER
+- post_id*INTEGER(Foreignkey):INTEGER
+- PERCENTAGE INTEGER*:INTEGER
+
+Comment
+- comment_id* (Primary Key):INTEGER
+- post_id* (Foreign Key to Post):INTEGER
+- user_id* (Foreign Key to User):INTEGER
+- content*:TEXT
+- created_at*:DATE
+
+Like
+- like_id* (Primary Key):INTEGER
+- post_id* (Foreign Key to Post):INTEGER
+- user_id* (Foreign Key to User):INTEGER
+- created_at*:DATE
+
+Group
+- group_id*(Primary Key):INTEGER
+- group_name*:TEXT
+- group_point:INTEGER
+- group_picture:BULB
+- group_bio:TEXT
+- group_stacks:TEXT
+
+group_role
+- user_id*(Foreignkey):INTEGER
+- group_id*(Foreignkey):INTEGER
+- role*('LEADER','CO-LEADER','MEMBER'):TEXT
+
+
+ npx tailwindcss -i ./static/CSS/input.css -o ./static/CSS/output.css --watch
